@@ -136,6 +136,10 @@ class TaskBlock(nn.Module):
             x *= bool_vec
 
         x = self.lin_out(x)
+        # # handle discrete affordances
+        # if self.lin_out.out_features > 1:
+        #     x = nn.Softmax()(x)
+
         return x
 
 class CAL_network(nn.Module):
